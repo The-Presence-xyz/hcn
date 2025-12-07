@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+@@include('components/page-blocks/_head.html',{
+"lang":"en",
+"title":"Real Estate",
+"description":"Real Estate - description",
+"keywords":"",
+"favicon":"img/favicons/favicon",
+})
+
+<body>
+	@@include('components/page-blocks/_header.html')
+	<main class="main">
+		<div class="container">
+			<div class="main__content">
+				<div class="filter-box">
+					@@include('components/ui/filter.html')
+				</div>
+				<div class="content-box">
+					<h1 class="content-box__title title">Рекомендовані пропозиції</h1>
+					<div class="mobile-action-btn">
+						<div class="mobile-btn js-sort-btn">
+							<div class="mobile-btn__icon --svg__sort-icon"></div>
+							<div class="mobile-btn__label">Сортувати</div>
+						</div>
+						<div class="mobile-btn js-filter-btn">
+							<div class="mobile-btn__icon --svg__filter-icon"></div>
+							<div class="mobile-btn__label">Фільтрувати</div>
+						</div>
+					</div>
+					<div class="content-box__content">
+						<ul class="list">
+							<li class="list__item">
+								@@include('components/ui/card.html')
+							</li>
+							<li class="list__item">
+								@@include('components/ui/card.html')
+							</li>
+							<li class="list__item">
+								@@include('components/ui/card.html')
+							</li>
+							<li class="list__item">
+								@@include('components/ui/card.html')
+							</li>
+							<li class="list__item">
+								@@include('components/ui/card.html')
+							</li>
+							<li class="list__item">
+								@@include('components/ui/card.html')
+							</li>
+						</ul>
+						@@include('components/ui/pagination.html')
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	@@include('components/page-blocks/_footer.html')
+	@@include('components/page-blocks/_scripts.html')
+</body>
+
+</html>

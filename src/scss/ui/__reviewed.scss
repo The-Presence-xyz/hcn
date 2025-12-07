@@ -1,0 +1,91 @@
+.reviewed {
+    @media (max-width: 1280px) {
+        margin-right: -80px;
+        margin-left: -80px;
+    }
+    @media (max-width: 991px) {
+        margin-right: -36px;
+        margin-left: -36px;
+    }
+    @media (max-width: 767px) {
+        margin-right: -20px;
+        margin-left: -20px;
+    }
+    &__header {
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 32px;
+        display: flex;
+        justify-content: space-between;
+        @media (max-width: 1280px) {
+            margin-right: 80px;
+            margin-left: 80px;
+        }
+        @media (max-width: 991px) {
+            margin-right: 36px;
+            margin-left: 36px;
+        }
+        @media (max-width: 767px) {
+            font-size: 26px;
+            margin-right: 20px;
+            margin-left: 20px;
+        }
+    }
+    &__slider {
+        .slick-list {
+            //&:after {
+            //    content: "";
+            //    position: absolute;
+            //    right: 0;
+            //    top: 0;
+            //    width: 80px;
+            //    height: 100%;
+            //}
+        }
+        .slick-slide {
+            margin-right: 20px;
+        }
+        &-navigation {
+            display: flex;
+            width: 60px;
+            justify-content: space-between;
+            @media (max-width: 1280px) {
+                //margin-right: 40px;
+            }
+            @media (max-width: 991px) {
+                //margin-right: 36px;
+            }
+            @media (max-width: 767px) {
+                display: none;
+            }
+        }
+        &-prev {
+            width: 24px;
+            height: 24px;
+            background-position: center;
+            background-repeat: no-repeat;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        &-next {
+            width: 24px;
+            height: 24px;
+            transform: rotate(180deg);
+            background-position: center;
+            background-repeat: no-repeat;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+    &__slider-wrap {
+        width: 100%;
+    }
+    &__slider-item {
+        max-width: 280px;
+        .card {
+            min-width: 100%;
+        }
+    }
+}

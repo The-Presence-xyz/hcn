@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+@@include('components/page-blocks/_head.html',{
+"lang":"en",
+"title":"Real Estate",
+"description":"Real Estate - description",
+"keywords":"",
+"favicon":"img/favicons/favicon",
+})
+    <body>
+        <div class="loginPage">
+            <div class="loginPage__container">
+                <h1 class="loginPage__title">Увійти</h1>
+                <img src="img/sprite.svg#logo" alt="logo" class="loginPage__logo">
+                <form class="loginPage__form" id="loginForm">
+                    <div class="loginPage__form-line">
+                        <div class="input default">
+                            <label class="input__label">Логін</label>
+                            <input
+                                name="login"
+                                type="text"
+                                placeholder="Ваш логін"
+                            />
+                        </div>
+                    </div>
+                    <div class="loginPage__form-line">
+                        <div class="input default password">
+                            <label class="input__label">Пароль</label>
+                            <input type="password" placeholder="Ваш пароль" autocomplete="current-password" name="password" required/>
+                            <div class="showPasswordBtn js-show-password hidden">
+                                <span class="icon show --svg__i_eye"></span>
+                                <span class="icon hide --svg__i_eye-slash"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="loginPage__form-line remember-me">
+                        <div class="input checkbox blue">
+                            <input type="checkbox" id="remember" name="remember">
+                            <label for="remember"><span class="icon"></span>Запам'ятати мене</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="button light-blue buttonSubmit">Увійти</button>
+                </form>
+            </div>
+        </div>
+    </body>
+@@include('components/page-blocks/_scripts.html')
+</html>

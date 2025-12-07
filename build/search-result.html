@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta name="robots" content="noindex, nofollow">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+	<meta name="description" content="Real Estate - description">
+	<meta name="keywords" content="">
+	<link rel="icon" href="img/favicons/favicon.ico"/>
+	<link rel="icon" type="image/svg+xml" href="img/favicons/favicon.svg" />
+	<link rel="shortcut icon" href="img/favicons/favicon.ico" />
+	<link rel="apple-touch-icon" sizes="180x180" href="@apple-touch-icon.png" />
+	<link rel="stylesheet" href="css/libs.min.css">
+	<link rel="stylesheet" href="css/style.min.css">
+	<title>Real Estate</title>
+</head>
+
+
+<body>
+	<header class="header">
+    <div class="container">
+        <div class="header__wrapper">
+            <div class="header__logo">
+                <a href="/" class="header__logo-img">
+                    <img src="img/sprite.svg#logo" alt="logo">
+                </a>
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-button"><img src="img/sprite.svg#i_house" alt="logo">Продаж</button>
+                <button class="filter-button"><img src="img/sprite.svg#i_build" alt="logo">Оренда</button>
+            </div>
+            <div class="header__search-bar">
+                <div class="search-bar js-search-bar">
+    <form class="search-bar__container search-bar-form">
+        <div class="search-bar__input">
+            <div class="selected-values">
+                <div class="search-bar__input-box">
+                    <input  type="text" class="input search-input js-search-input" placeholder="Ручне введення" name="searchQuery">
+                    <span class="search-bar__input-icon">
+                    <img src="img/sprite.svg#i_search" alt="i_search">
+                </span>
+                </div>
+            </div>
+
+        </div>
+        <div class="search-bar__filter">
+            <div class="search-bar__filter-item" data-item-name="area">
+                <div class="title" data-accordion data-open>
+                    <div class="icon --svg__i_location"></div>
+                    <div class="label">Район</div>
+                </div>
+                <div class="options">
+                    <ul class="options__list">
+                        <li class="options__list-item">
+                            <label for="area_1">
+                                <input type="checkbox" id="area_1" name="area_1">
+                                <span class="label">Ракове</span>
+                            </label>
+                        </li>
+                        <li class="options__list-item">
+                            <label for="area_2">
+                                <input type="checkbox" id="area_2" name="area_2">
+                                <span class="label">Центр</span>
+                            </label>
+                        </li>
+                        <li class="options__list-item">
+                            <label for="area_3">
+                                <input type="checkbox" id="area_3" name="area_3">
+                                <span class="label">Озерна</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="search-bar__filter-item" data-item-name="type">
+                <div class="title" data-accordion data-open>
+                    <div class="icon --svg__i_location"></div>
+                    <div class="label">Тип нерухомості</div>
+                </div>
+                <div class="options">
+                    <ul class="options__list">
+                        <li class="options__list-item">
+                            <label for="house_1">
+                                <input type="checkbox" id="house_1" name="house_1">
+                                <span class="label">Будинки1</span>
+                            </label>
+                        </li>
+                        <li class="options__list-item">
+                            <label for="land-plots_1">
+                                <input type="checkbox" id="land-plots_1" name="land-plots_1">
+                                <span class="label">Земельні ділянки1</span>
+                            </label>
+                        </li>
+                        <li class="options__list-item">
+                            <label for="office_1">
+                                <input type="checkbox" id="office_1" name="office_1">
+                                <span class="label">Офіси1</span>
+                            </label>
+                        </li>
+                        <li class="options__list-item">
+                            <label for="rent_1">
+                                <input type="checkbox" id="rent_1" name="rent_1">
+                                <span class="label">Оренда1</span>
+                            </label>
+                        </li>
+                        <li class="options__list-item">
+                            <label for="house">
+                                <input type="checkbox" id="house" name="house">
+                                <span class="label">Будинки</span>
+                            </label>
+                        </li>
+                        <li class="options__list-item">
+                            <label for="land-plots">
+                                <input type="checkbox" id="land-plots" name="land-plots">
+                                <span class="label">Земельні ділянки</span>
+                            </label>
+                        </li>
+                        <li class="options__list-item">
+                            <label for="office">
+                                <input type="checkbox" id="office" name="office">
+                                <span class="label">Офіси</span>
+                            </label>
+                        </li>
+                        <li class="options__list-item">
+                            <label for="rent">
+                                <input type="checkbox" id="rent" name="rent">
+                                <span class="label">Оренда</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="search-bar__filter-btns">
+                <button class="button blue" type="submit">Застосувати</button>
+                <button class="button light-blue" type="reset">Видалити</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+            </div>
+        </div>
+    </div>
+</header>
+	<main class="main search-result">
+		<div class="container">
+			<div class="main__content">
+				<div class="filter-box">
+					<form class="filter" id="filter">
+    <div class="filter-section sort-box border-bottom">
+        <h3 class="filter-title showOnMobile">Фільтр <span class="js-close-sort close-btn --svg__close"></span></h3>
+        <div class="filter-item" data-key="sort">
+            <h3 class="filter-title filter-item-title" data-accordion data-open="true">Сортувати</h3>
+            <div class="filter-options">
+                <div class="input radio">
+                    <input type="radio" value="asc" id="asc" name="sort" checked>
+                    <label for="asc"><span class="icon"></span>За зростанням ціни</label>
+                </div>
+                <div class="input radio">
+                    <input type="radio" value="desc" id="desc" name="sort">
+                    <label for="desc"><span class="icon"></span>За спаданням ціни</label>
+                </div>
+                <div class="input radio">
+                    <input type="radio" value="novelty" id="novelty" name="sort">
+                    <label for="novelty"><span class="icon"></span>За новизною</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="filter-section filter-box">
+        <h3 class="filter-title">Фільтр <span class="js-close-filter close-btn --svg__close"></span></h3>
+        <div class="filter-item" data-key="real_estate_kind">
+            <h4 class="filter-item-title" data-accordion data-open>Вид нерухомості</h4>
+            <div class="filter-options">
+                <div class="input radio">
+                    <input type="radio" value="houses" id="new" name="estate-type" checked>
+                    <label for="new"><span class="icon"></span>Новобудова</label>
+                </div>
+                <div class="input radio">
+                    <input type="radio" value="houses" id="secondary" name="estate-type">
+                    <label for="secondary"><span class="icon"></span>Вторинне</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter-item" data-key="real_estate_type">
+            <h4 class="filter-item-title" data-accordion data-open>Тип нерухомості</h4>
+            <div class="filter-options">
+                <div class="input checkbox">
+                    <input type="checkbox" value="houses" id="houses" name="houses">
+                    <label for="houses"><span class="icon"></span>Будинки</label>
+                </div>
+                <div class="input checkbox">
+                    <input type="checkbox" value="land" id="land" name="land">
+                    <label for="land"><span class="icon"></span>Земельні ділянки</label>
+                </div>
+                <div class="input checkbox">
+                    <input type="checkbox" value="offices" id="offices" name="offices">
+                    <label for="offices"><span class="icon"></span>Офіси</label>
+                </div>
+                <div class="input checkbox">
+                    <input type="checkbox" value="rentType" id="rentType" name="rentType">
+                    <label for="rentType"><span class="icon"></span>Оренда</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter-item range-item" data-key="price">
+            <h4 class="filter-item-title" data-accordion data-open="">Ціна в $</h4>
+            <div class="filter-options">
+                <div class="range-slider">
+                    <input type="number" class="min-value" value="0" min="0" max="2000000" inputmode="numeric">
+                    <input type="number" class="max-value" value="2000000" min="0" max="2000000" inputmode="numeric">
+
+                    <div class="range">
+                        <input type="range" class="min-input" value="0" min="0" max="2000000" inputmode="numeric">
+                        <input type="range" class="max-input" value="2000000" min="0" max="2000000" inputmode="numeric">
+                        <div class="slider">
+                            <div class="progress"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter-item range-field" data-key="rom_count">
+            <h4 class="filter-item-title" data-accordion data-open="true">Кількість кімнат</h4>
+            <div class="filter-options">
+                <div class="range-field__range">
+                    <input type="number" class="min-value" placeholder="Від" name="min-value" inputmode="numeric">
+                    <input type="number" class="max-value" placeholder="До" name="max-value" inputmode="numeric">
+                </div>
+                <p class="errorText"></p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="filter-actions">
+        <button class="button blue apply-btn" type="submit">Застосувати</button>
+        <button class="button light-blue reset-btn" type="reset">Видалити</button>
+    </div>
+</form>
+
+				</div>
+				<div class="content-box">
+					<h1 class="content-box__title title">Результати пошуку</h1>
+					<div class="selected-values js-selected-values-search-result">
+
+					</div>
+
+					<div class="mobile-action-btn">
+						<div class="mobile-btn js-sort-btn">
+							<div class="mobile-btn__icon --svg__sort-icon"></div>
+							<div class="mobile-btn__label">Сортувати</div>
+						</div>
+						<div class="mobile-btn js-filter-btn">
+							<div class="mobile-btn__icon --svg__filter-icon"></div>
+							<div class="mobile-btn__label">Фільтрувати</div>
+						</div>
+					</div>
+					<div class="content-box__content">
+						<ul class="list">
+							<li class="list__item">
+								<a class="card" href="card-page.html">
+    <div class="card__img">
+        <img src="img/card_bg.webp" alt="">
+    </div>
+    <div class="card__header">
+        <div class="sticker-wrap">
+            <span class="card__sticker lightBlue">Новинка</span>
+            <div class="card__sticker lightOrange">Вигідна пропозиція</div>
+        </div>
+        <div class="share-menu js-share-btn">
+    <img src="img/sprite.svg#i_share" alt="Поділитися">
+    <ul class="share-menu__list">
+        <li class="share-menu__list-item">
+            <span class="label">Скопіювати посилання</span>
+            <span class="icon --svg__i_link"></span>
+        </li>
+        <li class="share-menu__list-item">
+            <span class="label">Viber</span>
+            <span class="icon --svg__i_viber"></span>
+        </li>
+        <li class="share-menu__list-item">
+            <span class="label">Telegram</span>
+            <span class="icon --svg__i_telegram"></span>
+        </li>
+        <li class="share-menu__list-item">
+            <span class="label">Facebook</span>
+            <span class="icon --svg__i_facebook"></span>
+        </li>
+    </ul>
+</div>
+
+<!--        <div class="card__share-link js-share-btn">-->
+<!--            <img src="img/sprite.svg#i_share" alt="Поділитися">-->
+<!--            <ul class="card__share-list">-->
+<!--                <li class="card__share-list-item">-->
+<!--                    <span class="label">Скопіювати посилання</span>-->
+<!--                    <span class="icon &#45;&#45;svg__i_link"></span>-->
+<!--                </li>-->
+<!--                <li class="card__share-list-item">-->
+<!--                    <span class="label">Viber</span>-->
+<!--                    <span class="icon &#45;&#45;svg__i_viber"></span>-->
+<!--                </li>-->
+<!--                <li class="card__share-list-item">-->
+<!--                    <span class="label">Telegram</span>-->
+<!--                    <span class="icon &#45;&#45;svg__i_telegram"></span>-->
+<!--                </li>-->
+<!--                <li class="card__share-list-item">-->
+<!--                    <span class="label">Facebook</span>-->
+<!--                    <span class="icon &#45;&#45;svg__i_facebook"></span>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
+    </div>
+    <div class="card__content">
+        <div class="card__content-name">Русанівська Гавань</div>
+        <ul class="card__content-params">
+            <li class="price">67 000 $</li>
+            <li class="size">Площа 127 м2</li>
+            <li class="location"><img src="img/sprite.svg#i_location" alt="icon-location" class="icon">Голосіївський</li>
+            <li class="price-per-meter"><img src="img/sprite.svg#i_price" alt="icon-price-per-meter" class="icon">1 300/м2</li>
+        </ul>
+        <div class="card__content-info">
+            <span class="button orange">Детальніше</span>
+            <span class="date">12/ 10/ 24</span>
+        </div>
+    </div>
+</a>
+
+							</li>
+							<li class="list__item">
+								<a class="card" href="card-page.html">
+    <div class="card__img">
+        <img src="img/card_bg.webp" alt="">
+    </div>
+    <div class="card__header">
+        <div class="sticker-wrap">
+            <span class="card__sticker lightBlue">Новинка</span>
+            <div class="card__sticker lightOrange">Вигідна пропозиція</div>
+        </div>
+        <div class="share-menu js-share-btn">
+    <img src="img/sprite.svg#i_share" alt="Поділитися">
+    <ul class="share-menu__list">
+        <li class="share-menu__list-item">
+            <span class="label">Скопіювати посилання</span>
+            <span class="icon --svg__i_link"></span>
+        </li>
+        <li class="share-menu__list-item">
+            <span class="label">Viber</span>
+            <span class="icon --svg__i_viber"></span>
+        </li>
+        <li class="share-menu__list-item">
+            <span class="label">Telegram</span>
+            <span class="icon --svg__i_telegram"></span>
+        </li>
+        <li class="share-menu__list-item">
+            <span class="label">Facebook</span>
+            <span class="icon --svg__i_facebook"></span>
+        </li>
+    </ul>
+</div>
+
+<!--        <div class="card__share-link js-share-btn">-->
+<!--            <img src="img/sprite.svg#i_share" alt="Поділитися">-->
+<!--            <ul class="card__share-list">-->
+<!--                <li class="card__share-list-item">-->
+<!--                    <span class="label">Скопіювати посилання</span>-->
+<!--                    <span class="icon &#45;&#45;svg__i_link"></span>-->
+<!--                </li>-->
+<!--                <li class="card__share-list-item">-->
+<!--                    <span class="label">Viber</span>-->
+<!--                    <span class="icon &#45;&#45;svg__i_viber"></span>-->
+<!--                </li>-->
+<!--                <li class="card__share-list-item">-->
+<!--                    <span class="label">Telegram</span>-->
+<!--                    <span class="icon &#45;&#45;svg__i_telegram"></span>-->
+<!--                </li>-->
+<!--                <li class="card__share-list-item">-->
+<!--                    <span class="label">Facebook</span>-->
+<!--                    <span class="icon &#45;&#45;svg__i_facebook"></span>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
+    </div>
+    <div class="card__content">
+        <div class="card__content-name">Русанівська Гавань</div>
+        <ul class="card__content-params">
+            <li class="price">67 000 $</li>
+            <li class="size">Площа 127 м2</li>
+            <li class="location"><img src="img/sprite.svg#i_location" alt="icon-location" class="icon">Голосіївський</li>
+            <li class="price-per-meter"><img src="img/sprite.svg#i_price" alt="icon-price-per-meter" class="icon">1 300/м2</li>
+        </ul>
+        <div class="card__content-info">
+            <span class="button orange">Детальніше</span>
+            <span class="date">12/ 10/ 24</span>
+        </div>
+    </div>
+</a>
+
+							</li>
+							<li class="list__item">
+								<a class="card" href="card-page.html">
+    <div class="card__img">
+        <img src="img/card_bg.webp" alt="">
+    </div>
+    <div class="card__header">
+        <div class="sticker-wrap">
+            <span class="card__sticker lightBlue">Новинка</span>
+            <div class="card__sticker lightOrange">Вигідна пропозиція</div>
+        </div>
+        <div class="share-menu js-share-btn">
+    <img src="img/sprite.svg#i_share" alt="Поділитися">
+    <ul class="share-menu__list">
+        <li class="share-menu__list-item">
+            <span class="label">Скопіювати посилання</span>
+            <span class="icon --svg__i_link"></span>
+        </li>
+        <li class="share-menu__list-item">
+            <span class="label">Viber</span>
+            <span class="icon --svg__i_viber"></span>
+        </li>
+        <li class="share-menu__list-item">
+            <span class="label">Telegram</span>
+            <span class="icon --svg__i_telegram"></span>
+        </li>
+        <li class="share-menu__list-item">
+            <span class="label">Facebook</span>
+            <span class="icon --svg__i_facebook"></span>
+        </li>
+    </ul>
+</div>
+
+<!--        <div class="card__share-link js-share-btn">-->
+<!--            <img src="img/sprite.svg#i_share" alt="Поділитися">-->
+<!--            <ul class="card__share-list">-->
+<!--                <li class="card__share-list-item">-->
+<!--                    <span class="label">Скопіювати посилання</span>-->
+<!--                    <span class="icon &#45;&#45;svg__i_link"></span>-->
+<!--                </li>-->
+<!--                <li class="card__share-list-item">-->
+<!--                    <span class="label">Viber</span>-->
+<!--                    <span class="icon &#45;&#45;svg__i_viber"></span>-->
+<!--                </li>-->
+<!--                <li class="card__share-list-item">-->
+<!--                    <span class="label">Telegram</span>-->
+<!--                    <span class="icon &#45;&#45;svg__i_telegram"></span>-->
+<!--                </li>-->
+<!--                <li class="card__share-list-item">-->
+<!--                    <span class="label">Facebook</span>-->
+<!--                    <span class="icon &#45;&#45;svg__i_facebook"></span>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
+    </div>
+    <div class="card__content">
+        <div class="card__content-name">Русанівська Гавань</div>
+        <ul class="card__content-params">
+            <li class="price">67 000 $</li>
+            <li class="size">Площа 127 м2</li>
+            <li class="location"><img src="img/sprite.svg#i_location" alt="icon-location" class="icon">Голосіївський</li>
+            <li class="price-per-meter"><img src="img/sprite.svg#i_price" alt="icon-price-per-meter" class="icon">1 300/м2</li>
+        </ul>
+        <div class="card__content-info">
+            <span class="button orange">Детальніше</span>
+            <span class="date">12/ 10/ 24</span>
+        </div>
+    </div>
+</a>
+
+							</li>
+							<li class="list__item">
+								<a class="card" href="card-page.html">
+    <div class="card__img">
+        <img src="img/card_bg.webp" alt="">
+    </div>
+    <div class="card__header">
+        <div class="sticker-wrap">
+            <span class="card__sticker lightBlue">Новинка</span>
+            <div class="card__sticker lightOrange">Вигідна пропозиція</div>
+        </div>
+        <div class="share-menu js-share-btn">
+    <img src="img/sprite.svg#i_share" alt="Поділитися">
+    <ul class="share-menu__list">
+        <li class="share-menu__list-item">
+            <span class="label">Скопіювати посилання</span>
+            <span class="icon --svg__i_link"></span>
+        </li>
+        <li class="share-menu__list-item">
+            <span class="label">Viber</span>
+            <span class="icon --svg__i_viber"></span>
+        </li>
+        <li class="share-menu__list-item">
+            <span class="label">Telegram</span>
+            <span class="icon --svg__i_telegram"></span>
+        </li>
+        <li class="share-menu__list-item">
+            <span class="label">Facebook</span>
+            <span class="icon --svg__i_facebook"></span>
+        </li>
+    </ul>
+</div>
+
+<!--        <div class="card__share-link js-share-btn">-->
+<!--            <img src="img/sprite.svg#i_share" alt="Поділитися">-->
+<!--            <ul class="card__share-list">-->
+<!--                <li class="card__share-list-item">-->
+<!--                    <span class="label">Скопіювати посилання</span>-->
+<!--                    <span class="icon &#45;&#45;svg__i_link"></span>-->
+<!--                </li>-->
+<!--                <li class="card__share-list-item">-->
+<!--                    <span class="label">Viber</span>-->
+<!--                    <span class="icon &#45;&#45;svg__i_viber"></span>-->
+<!--                </li>-->
+<!--                <li class="card__share-list-item">-->
+<!--                    <span class="label">Telegram</span>-->
+<!--                    <span class="icon &#45;&#45;svg__i_telegram"></span>-->
+<!--                </li>-->
+<!--                <li class="card__share-list-item">-->
+<!--                    <span class="label">Facebook</span>-->
+<!--                    <span class="icon &#45;&#45;svg__i_facebook"></span>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
+    </div>
+    <div class="card__content">
+        <div class="card__content-name">Русанівська Гавань</div>
+        <ul class="card__content-params">
+            <li class="price">67 000 $</li>
+            <li class="size">Площа 127 м2</li>
+            <li class="location"><img src="img/sprite.svg#i_location" alt="icon-location" class="icon">Голосіївський</li>
+            <li class="price-per-meter"><img src="img/sprite.svg#i_price" alt="icon-price-per-meter" class="icon">1 300/м2</li>
+        </ul>
+        <div class="card__content-info">
+            <span class="button orange">Детальніше</span>
+            <span class="date">12/ 10/ 24</span>
+        </div>
+    </div>
+</a>
+
+							</li>
+							<li class="list__item">
+								<a class="card" href="card-page.html">
+    <div class="card__img">
+        <img src="img/card_bg.webp" alt="">
+    </div>
+    <div class="card__header">
+        <div class="sticker-wrap">
+            <span class="card__sticker lightBlue">Новинка</span>
+            <div class="card__sticker lightOrange">Вигідна пропозиція</div>
+        </div>
+        <div class="share-menu js-share-btn">
+    <img src="img/sprite.svg#i_share" alt="Поділитися">
+    <ul class="share-menu__list">
+        <li class="share-menu__list-item">
+            <span class="label">Скопіювати посилання</span>
+            <span class="icon --svg__i_link"></span>
+        </li>
+        <li class="share-menu__list-item">
+            <span class="label">Viber</span>
+            <span class="icon --svg__i_viber"></span>
+        </li>
+        <li class="share-menu__list-item">
+            <span class="label">Telegram</span>
+            <span class="icon --svg__i_telegram"></span>
+        </li>
+        <li class="share-menu__list-item">
+            <span class="label">Facebook</span>
+            <span class="icon --svg__i_facebook"></span>
+        </li>
+    </ul>
+</div>
+
+<!--        <div class="card__share-link js-share-btn">-->
+<!--            <img src="img/sprite.svg#i_share" alt="Поділитися">-->
+<!--            <ul class="card__share-list">-->
+<!--                <li class="card__share-list-item">-->
+<!--                    <span class="label">Скопіювати посилання</span>-->
+<!--                    <span class="icon &#45;&#45;svg__i_link"></span>-->
+<!--                </li>-->
+<!--                <li class="card__share-list-item">-->
+<!--                    <span class="label">Viber</span>-->
+<!--                    <span class="icon &#45;&#45;svg__i_viber"></span>-->
+<!--                </li>-->
+<!--                <li class="card__share-list-item">-->
+<!--                    <span class="label">Telegram</span>-->
+<!--                    <span class="icon &#45;&#45;svg__i_telegram"></span>-->
+<!--                </li>-->
+<!--                <li class="card__share-list-item">-->
+<!--                    <span class="label">Facebook</span>-->
+<!--                    <span class="icon &#45;&#45;svg__i_facebook"></span>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
+    </div>
+    <div class="card__content">
+        <div class="card__content-name">Русанівська Гавань</div>
+        <ul class="card__content-params">
+            <li class="price">67 000 $</li>
+            <li class="size">Площа 127 м2</li>
+            <li class="location"><img src="img/sprite.svg#i_location" alt="icon-location" class="icon">Голосіївський</li>
+            <li class="price-per-meter"><img src="img/sprite.svg#i_price" alt="icon-price-per-meter" class="icon">1 300/м2</li>
+        </ul>
+        <div class="card__content-info">
+            <span class="button orange">Детальніше</span>
+            <span class="date">12/ 10/ 24</span>
+        </div>
+    </div>
+</a>
+
+							</li>
+							<li class="list__item">
+								<a class="card" href="card-page.html">
+    <div class="card__img">
+        <img src="img/card_bg.webp" alt="">
+    </div>
+    <div class="card__header">
+        <div class="sticker-wrap">
+            <span class="card__sticker lightBlue">Новинка</span>
+            <div class="card__sticker lightOrange">Вигідна пропозиція</div>
+        </div>
+        <div class="share-menu js-share-btn">
+    <img src="img/sprite.svg#i_share" alt="Поділитися">
+    <ul class="share-menu__list">
+        <li class="share-menu__list-item">
+            <span class="label">Скопіювати посилання</span>
+            <span class="icon --svg__i_link"></span>
+        </li>
+        <li class="share-menu__list-item">
+            <span class="label">Viber</span>
+            <span class="icon --svg__i_viber"></span>
+        </li>
+        <li class="share-menu__list-item">
+            <span class="label">Telegram</span>
+            <span class="icon --svg__i_telegram"></span>
+        </li>
+        <li class="share-menu__list-item">
+            <span class="label">Facebook</span>
+            <span class="icon --svg__i_facebook"></span>
+        </li>
+    </ul>
+</div>
+
+<!--        <div class="card__share-link js-share-btn">-->
+<!--            <img src="img/sprite.svg#i_share" alt="Поділитися">-->
+<!--            <ul class="card__share-list">-->
+<!--                <li class="card__share-list-item">-->
+<!--                    <span class="label">Скопіювати посилання</span>-->
+<!--                    <span class="icon &#45;&#45;svg__i_link"></span>-->
+<!--                </li>-->
+<!--                <li class="card__share-list-item">-->
+<!--                    <span class="label">Viber</span>-->
+<!--                    <span class="icon &#45;&#45;svg__i_viber"></span>-->
+<!--                </li>-->
+<!--                <li class="card__share-list-item">-->
+<!--                    <span class="label">Telegram</span>-->
+<!--                    <span class="icon &#45;&#45;svg__i_telegram"></span>-->
+<!--                </li>-->
+<!--                <li class="card__share-list-item">-->
+<!--                    <span class="label">Facebook</span>-->
+<!--                    <span class="icon &#45;&#45;svg__i_facebook"></span>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
+    </div>
+    <div class="card__content">
+        <div class="card__content-name">Русанівська Гавань</div>
+        <ul class="card__content-params">
+            <li class="price">67 000 $</li>
+            <li class="size">Площа 127 м2</li>
+            <li class="location"><img src="img/sprite.svg#i_location" alt="icon-location" class="icon">Голосіївський</li>
+            <li class="price-per-meter"><img src="img/sprite.svg#i_price" alt="icon-price-per-meter" class="icon">1 300/м2</li>
+        </ul>
+        <div class="card__content-info">
+            <span class="button orange">Детальніше</span>
+            <span class="date">12/ 10/ 24</span>
+        </div>
+    </div>
+</a>
+
+							</li>
+						</ul>
+						<div class="pagination-container">
+    <div class="refresh">
+        <!--You can use class "refresh-icon loading"-->
+        <div class="refresh-icon">
+            <img src="img/sprite.svg#i_refresh" alt="i_refresh">
+        </div>
+        Дивитись наступні
+    </div>
+    <div class="pagination">
+        <button class="prev-ten disabled">
+            <svg width="9" height="20" viewBox="0 0 9 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 1L1 10.0008L8 19" stroke="#1B3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <svg width="9" height="20" viewBox="0 0 9 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 1L1 10.0008L8 19" stroke="#1B3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <button class="prev disabled">
+            <svg width="9" height="20" viewBox="0 0 9 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 1L1 10.0008L8 19" stroke="#1B3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <button class="active">1</button>
+        <button>2</button>
+        <button>3</button>
+        <span class="dots">...</span>
+        <button>12</button>
+        <button class="next">
+            <svg width="9" height="20" viewBox="0 0 9 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 19L8 9.99919L1 1" stroke="#1B3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </button>
+        <button class="next-ten">
+            <svg width="9" height="20" viewBox="0 0 9 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 19L8 9.99919L1 1" stroke="#1B3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <svg width="9" height="20" viewBox="0 0 9 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 19L8 9.99919L1 1" stroke="#1B3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </button>
+    </div>
+</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	<footer class="footer">
+    <div class="container">
+        <div class="footer__wrapper">
+            <div class="footer__logo">
+                <a href="/" class="footer__logo-img">
+                    <img src="img/sprite.svg#logo" alt="logo">
+                </a>
+            </div>
+            <ul class="footer__social-list">
+                <li class="footer__social-list-item">
+                    <a href="/" >
+                        <img src="img/sprite.svg#i_telegram" alt="i-telegram">
+                    </a>
+                </li>
+                <li class="footer__social-list-item">
+                    <a href="/" >
+                        <img src="img/sprite.svg#i_viber" alt="i-viber">
+                    </a>
+                </li>
+                <li class="footer__social-list-item">
+                    <a href="/" >
+                        <img src="img/sprite.svg#i_facebook" alt="i-facebook">
+                    </a>
+                </li>
+                <li class="footer__social-list-item">
+                    <a href="/" >
+                        <img src="img/sprite.svg#i_mail" alt="i-mail">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="modal open-custom-video-modal mfp-hide" id="customVideoModal">
+    <div class="modal-content">
+        <video controls>
+            <source src="img/video/video.mp4" type="video/mp4">
+        </video>
+    </div>
+</div>
+
+    <div id="notificationInfo" class="notification info"><span class="icon --svg__i_info"></span>Посилання скопійовано</div>
+    <div id="notificationError" class="notification error"></div>
+    <div id="notificationWarning" class="notification warning"></div>
+</footer>
+
+	<script src="js/libs.min.js"></script>
+<script src="js/main.min.js"></script>
+
+</body>
+
+</html>

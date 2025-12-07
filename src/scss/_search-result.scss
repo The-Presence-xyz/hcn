@@ -1,0 +1,19 @@
+.search-result {
+    .mobile-action-btn {
+        margin-top: 24px;
+        margin-bottom: 20px;
+    }
+    .content-box {
+        &__content {
+            margin-top: 24px;
+        }
+        &__title {
+            margin-bottom: 8px;
+        }
+    }
+    @media (max-width: 767px) {
+        .content-box__title {
+            margin-bottom: 16px;
+        }
+    }
+}

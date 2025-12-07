@@ -1,0 +1,32 @@
+.breadcrumb {
+    &__list {
+        display: flex;
+        &-item {
+            position: relative;
+            color: #040404;
+            font-size: 15px;
+            @media (max-width: 767px) {
+                font-size: 14px;
+            }
+            &:not(:last-child) {
+                margin-right: 20px;
+                &:after {
+                    content: '/';
+                    position: absolute;
+                    right: -13px;
+                    top: 0;
+                    font-size: 15px;
+                    display: block;
+                    
+                }
+                .breadcrumb__link {
+                    color: #040404;
+                    &:hover {
+                        color: var(--colorDarkBlue);
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+}

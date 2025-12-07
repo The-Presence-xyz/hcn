@@ -1,0 +1,96 @@
+<form class="filter" id="filter">
+    <div class="filter-section sort-box border-bottom">
+        <h3 class="filter-title showOnMobile">Фільтр <span class="js-close-sort close-btn --svg__close"></span></h3>
+        <div class="filter-item" data-key="sort">
+            <h3 class="filter-title filter-item-title" data-accordion data-open="true">Сортувати</h3>
+            <div class="filter-options">
+                <div class="input radio">
+                    <input type="radio" value="asc" id="asc" name="sort" checked>
+                    <label for="asc"><span class="icon"></span>За зростанням ціни</label>
+                </div>
+                <div class="input radio">
+                    <input type="radio" value="desc" id="desc" name="sort">
+                    <label for="desc"><span class="icon"></span>За спаданням ціни</label>
+                </div>
+                <div class="input radio">
+                    <input type="radio" value="novelty" id="novelty" name="sort">
+                    <label for="novelty"><span class="icon"></span>За новизною</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="filter-section filter-box">
+        <h3 class="filter-title">Фільтр <span class="js-close-filter close-btn --svg__close"></span></h3>
+        <div class="filter-item" data-key="real_estate_kind">
+            <h4 class="filter-item-title" data-accordion data-open>Вид нерухомості</h4>
+            <div class="filter-options">
+                <div class="input radio">
+                    <input type="radio" value="houses" id="new" name="estate-type" checked>
+                    <label for="new"><span class="icon"></span>Новобудова</label>
+                </div>
+                <div class="input radio">
+                    <input type="radio" value="houses" id="secondary" name="estate-type">
+                    <label for="secondary"><span class="icon"></span>Вторинне</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter-item" data-key="real_estate_type">
+            <h4 class="filter-item-title" data-accordion data-open>Тип нерухомості</h4>
+            <div class="filter-options">
+                <div class="input checkbox">
+                    <input type="checkbox" value="houses" id="houses" name="houses">
+                    <label for="houses"><span class="icon"></span>Будинки</label>
+                </div>
+                <div class="input checkbox">
+                    <input type="checkbox" value="land" id="land" name="land">
+                    <label for="land"><span class="icon"></span>Земельні ділянки</label>
+                </div>
+                <div class="input checkbox">
+                    <input type="checkbox" value="offices" id="offices" name="offices">
+                    <label for="offices"><span class="icon"></span>Офіси</label>
+                </div>
+                <div class="input checkbox">
+                    <input type="checkbox" value="rentType" id="rentType" name="rentType">
+                    <label for="rentType"><span class="icon"></span>Оренда</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter-item range-item" data-key="price">
+            <h4 class="filter-item-title" data-accordion data-open="">Ціна в $</h4>
+            <div class="filter-options">
+                <div class="range-slider">
+                    <input type="number" class="min-value" value="0" min="0" max="2000000" inputmode="numeric">
+                    <input type="number" class="max-value" value="2000000" min="0" max="2000000" inputmode="numeric">
+
+                    <div class="range">
+                        <input type="range" class="min-input" value="0" min="0" max="2000000" inputmode="numeric">
+                        <input type="range" class="max-input" value="2000000" min="0" max="2000000" inputmode="numeric">
+                        <div class="slider">
+                            <div class="progress"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter-item range-field" data-key="rom_count">
+            <h4 class="filter-item-title" data-accordion data-open="true">Кількість кімнат</h4>
+            <div class="filter-options">
+                <div class="range-field__range">
+                    <input type="number" class="min-value" placeholder="Від" name="min-value" inputmode="numeric">
+                    <input type="number" class="max-value" placeholder="До" name="max-value" inputmode="numeric">
+                </div>
+                <p class="errorText"></p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="filter-actions">
+        <button class="button blue apply-btn" type="submit">Застосувати</button>
+        <button class="button light-blue reset-btn" type="reset">Видалити</button>
+    </div>
+</form>
