@@ -144,6 +144,13 @@
     margin-bottom: 55px;
     @media (max-width: 767px) {
         display: flex;
+        gap: 6px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 10;
+        margin-bottom: 90px;
+        padding: 0 46px;
     }
     .mobile-btn {
         display: flex;
@@ -156,11 +163,16 @@
         }
         &__label {
             font-size: 16px;
-            font-weight: bold;
-            color: var(--txtColorDarkBlue);
+            font-weight: 400;
+            color: var(--colorWhite);
         }
         &:hover {
             cursor: pointer;
+        }
+        @media (max-width: 767px) {
+            background: #1b3346;
+            border-radius: 500px;
+            padding: 8px 16px;
         }
     }
 }

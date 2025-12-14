@@ -26,7 +26,7 @@
     content:'';
 }
 .--svg__filter-icon,.--svg__filter-icon-before::before,.--svg__filter-icon-after::after{
-    background-image: url("data:image/svg+xml;charset=utf8, %3Csvg width='25' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.5 4h16v2.172a2 2 0 01-.586 1.414L15.5 12v7l-6 2v-8.5L5.02 7.572a2 2 0 01-.52-1.345V4z' stroke='%231B3346' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml;charset=utf8, %3Csvg width='25' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.5 4h16v2.172a2 2 0 01-.586 1.414L15.5 12v7l-6 2v-8.5L5.02 7.572a2 2 0 01-.52-1.345V4z' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 }
 .--svg__filter-icon-before::before {
     content:'';
@@ -143,7 +143,7 @@
     content:'';
 }
 .--svg__sort-icon,.--svg__sort-icon-before::before,.--svg__sort-icon-after::after{
-    background-image: url("data:image/svg+xml;charset=utf8, %3Csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_77_4004)' fill='%231B3346'%3E%3Cpath d='M19.027 8.667H4.973a.667.667 0 010-1.334h14.054a.666.666 0 110 1.334zM14.113 12.667h-9.14a.667.667 0 010-1.334h9.14a.667.667 0 010 1.334zM9.16 16.667H4.973a.667.667 0 010-1.334H9.16a.667.667 0 010 1.334z'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_77_4004'%3E%3Cpath fill='%23fff' d='M0 0h24v24H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml;charset=utf8, %3Csvg width='24' height='24' fill='%23fff' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_77_4004)'%3E%3Cpath d='M19.027 8.667H4.973a.667.667 0 010-1.334h14.054a.666.666 0 110 1.334zM14.113 12.667h-9.14a.667.667 0 010-1.334h9.14a.667.667 0 010 1.334zM9.16 16.667H4.973a.667.667 0 010-1.334H9.16a.667.667 0 010 1.334z'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_77_4004'%3E%3Cpath d='M0 0h24v24H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
 }
 .--svg__sort-icon-before::before {
     content:'';

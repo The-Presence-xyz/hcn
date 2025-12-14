@@ -1,0 +1,58 @@
+.filter-buttons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    @media (max-width: 767px) {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        z-index: 10;
+        border-bottom: 1px solid #d3d3d3;
+        border-top: 0.25px solid #d3d3d3;
+        padding: 10px;
+        box-shadow: 0 -1px 4px 0 rgba(12, 12, 13, 0.05);
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    button {
+        height: 42px;
+        border-radius: 25px;
+        padding: 0 29px;
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: 400;
+        display: inline-flex;
+        align-items: center;
+        font-style: normal;
+        justify-content: center;
+        font-family: "Roboto", sans-serif;
+        background-color: var(--colorBlue);
+        border: 1px solid var(--colorBlue);
+        transition: all .3s ease;
+        
+        img {
+            width: 24px;
+            height: 24px;
+            margin-right: 16px;
+        }
+        
+        &:hover {
+            cursor: pointer;
+            border: 1px solid var(--colorWhite);
+            background-color: var(--colorDarkBlue);
+            color: var(--colorWhite);
+            transition: all .3s ease;
+            
+            img {
+                filter: brightness(0) invert(1);
+            }
+        }
+        @media (max-width: 767px) {
+        
+        }
+    }
+}
