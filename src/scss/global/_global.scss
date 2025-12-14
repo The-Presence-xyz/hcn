@@ -150,10 +150,10 @@ ul {
 		width: 100%;
 	}
 	&__title {
-		margin-bottom: 32px;
+		margin-bottom: 16px;
 		@media (max-width: 767px) {
 			font-size: 26px;
-			margin-bottom: 55px;
+			margin-bottom: 16px;
 		}
 	}
 	.list {
@@ -212,4 +212,40 @@ input {
 	@media (max-width: 767px) {
 		font-size: 14px;
 	}
+}
+
+.categories-button {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	margin-bottom: 32px;
+	@media (min-width: 768px) {
+		display: none;
+	}
+	.categoryBtn {
+		display: flex;
+		align-items: center;
+		background-color: var(--colorBlue);
+		border-radius: 500px;
+		padding: 8px 16px;
+		gap: 16px;
+		&__icon {
+			width: 24px;
+			height: 24px;
+			display: flex;
+			align-items: center;
+			color: var(--txtColorDarkBlue);
+		}
+		&__content {
+			color: var(--txtColorDarkBlue);
+			&-title {
+				font-size: 20px;
+				font-weight: 700;
+			}
+			&-desc {
+				font-size: 15px;
+			}
+		}
+	}
+	
 }

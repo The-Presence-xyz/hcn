@@ -815,4 +815,94 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   //range-field validation END
+
+  //filter Buttons BEGIN
+
+  // Отримуємо всі необхідні елементи
+  const filterButtons = document.querySelectorAll('.filter-button');
+  const filterResults = document.querySelector('.filter-results');
+  const closeBtn = document.querySelector('.close-btn');
+  const filterTabs = document.querySelectorAll('.filter-tab');
+  const resultLists = document.querySelectorAll('.result-list');
+
+// Функція для перемикання табів
+  function switchTab(type) {
+    // Прибираємо active з усіх табів
+    filterTabs.forEach(tab => tab.classList.remove('active'));
+
+    // Прибираємо show з усіх списків
+    resultLists.forEach(list => list.classList.remove('show'));
+
+    // Додаємо active до потрібного табу
+    const activeTab = document.querySelector(`.filter-tab[data-type="${type}"]`);
+    if (activeTab) {
+      console.log('activeTab: ', activeTab.dataset.type)
+      activeTab.classList.add('active');
+      filterResults.classList.add(`open-${activeTab.dataset.type}`)
+    }
+
+    // Додаємо show до потрібного списку
+    const activeList = document.querySelector(`.result-list[data-type="${type}"]`);
+    if (activeList) {
+      activeList.classList.add('show');
+    }
+  }
+
+// Обробник кліку на кнопки фільтра
+  filterButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      filterButtons.forEach(btn => btn.blur());
+      e.stopPropagation();
+
+      // Додаємо клас open до filter-results
+      $('body').addClass('noScroll');
+      $('html').addClass('noScroll');
+      filterResults.classList.add('open');
+      filterResults.classList.remove('open-sell');
+      filterResults.classList.remove('open-rent');
+      scrollTo(0, 0);
+
+      // Отримуємо ID кнопки (sell або rent)
+      const buttonId = button.id;
+      button.classList.add('active');
+
+      // Перемикаємо таб
+      switchTab(buttonId);
+    });
+  });
+
+// Обробник закриття
+  closeBtn.addEventListener('click', () => {
+    $('body').removeClass('noScroll');
+    $('html').removeClass('noScroll');
+    filterResults.classList.remove('open');
+    filterButtons.forEach(btn => btn.classList.remove('active'));
+  });
+
+// Додатково: перемикання табів при кліку на них
+  filterTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const type = tab.getAttribute('data-type');
+      switchTab(type);
+    });
+  });
+
+  // Зупиняємо спливання подій всередині filter-results
+  filterResults.addEventListener('click', (e) => {
+    e.stopPropagation();
+  });
+
+// Закриття при кліку за межами
+  document.addEventListener('click', (e) => {
+    const clickedInsideButtons = e.target.closest('.filter-buttons');
+    filterButtons.forEach(tab => tab.classList.remove('active'));
+    filterButtons.forEach(btn => btn.blur());
+
+    if (!clickedInsideButtons && filterResults.classList.contains('open')) {
+      filterResults.classList.remove('open');
+      $('body').removeClass('noScroll');
+      $('html').removeClass('noScroll');
+    }
+  });
 });

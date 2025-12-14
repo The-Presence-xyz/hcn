@@ -1,9 +1,142 @@
 <div class="filter-buttons">
-    <button class="filter-button" id="sell"><img src="img/sprite.svg#i_house" alt="logo">Продаж</button>
-    <button class="filter-button" id="rent"><img src="img/sprite.svg#i_build" alt="logo">Оренда</button>
+    <button class="filter-button" id="sell">
+        <svg class="icon" width="24" height="24">
+            <use href="img/sprite.svg#i_search_blue"></use>
+        </svg>
+        Продаж</button>
+    <span class="vertical-divider"></span>
+    <button class="filter-button" id="rent">
+        <svg class="icon" width="24" height="24">
+            <use href="img/sprite.svg#i_build_blue"></use>
+        </svg>
+        Оренда</button>
     <div class="filter-results">
-        <ul class="result-list">
-            <li class="result-list__item">Орендувати квартиру</li>
+        <div class="close-btn">
+            <img src="img/sprite.svg#i_arrow" alt="close">
+        </div>
+        <div class="filter-tabs">
+            <div class="filter-tab" data-type="sell">Продаж</div>
+            <div class="filter-tab" data-type="rent">Оренда</div>
+        </div>
+
+        <!-- Список для ПРОДАЖУ -->
+        <ul class="result-list" data-type="sell">
+            <li class="result-list__item">
+                <span class="result-list__item-icon">
+                    <svg class="icon" width="24" height="24">
+                        <use href="img/sprite.svg#cat_1"></use>
+                    </svg>
+                </span>
+                <span class="result-list__item-label">Купити квартиру</span>
+            </li>
+            <li class="result-list__item">
+                <span class="result-list__item-icon">
+                    <svg class="icon" width="24" height="24">
+                        <use href="img/sprite.svg#cat_2"></use>
+                    </svg>
+                </span>
+                <span class="result-list__item-label">Купити будинок</span>
+            </li>
+            <li class="result-list__item">
+                <span class="result-list__item-icon">
+                    <svg class="icon" width="24" height="24">
+                        <use href="img/sprite.svg#cat_3"></use>
+                    </svg>
+                </span>
+                <span class="result-list__item-label">Продаж кімнат</span>
+            </li>
+            <li class="result-list__item">
+                <span class="result-list__item-icon">
+                    <svg class="icon" width="24" height="24">
+                        <use href="img/sprite.svg#cat_6"></use>
+                    </svg>
+                </span>
+                <span class="result-list__item-label">Продаж земельних ділянок</span>
+            </li>
+            <li class="result-list__item">
+                <span class="result-list__item-icon">
+                    <svg class="icon" width="24" height="24">
+                        <use href="img/sprite.svg#cat_7"></use>
+                    </svg>
+                </span>
+                <span class="result-list__item-label">Продаж комерційної нерухомості</span>
+            </li>
+            <li class="result-list__item">
+                <span class="result-list__item-icon">
+                    <svg class="icon" width="24" height="24">
+                        <use href="img/sprite.svg#cat_8"></use>
+                    </svg>
+                </span>
+                <span class="result-list__item-label">Продаж гаражів</span>
+            </li>
+        </ul>
+
+        <!-- Список для ОРЕНДИ -->
+        <ul class="result-list" data-type="rent">
+            <li class="result-list__item">
+                <span class="result-list__item-icon">
+                    <svg class="icon" width="24" height="24">
+                        <use href="img/sprite.svg#cat_1"></use>
+                    </svg>
+                </span>
+                <span class="result-list__item-label">Орендувати квартиру</span>
+            </li>
+            <li class="result-list__item">
+                <span class="result-list__item-icon">
+                    <svg class="icon" width="24" height="24">
+                        <use href="img/sprite.svg#cat_2"></use>
+                    </svg>
+                </span>
+                <span class="result-list__item-label">Орендувати будинок</span>
+            </li>
+            <li class="result-list__item">
+                <span class="result-list__item-icon">
+                    <svg class="icon" width="24" height="24">
+                        <use href="img/sprite.svg#cat_3"></use>
+                    </svg>
+                </span>
+                <span class="result-list__item-label">Орендувати кімнату</span>
+            </li>
+            <li class="result-list__item">
+                <span class="result-list__item-icon">
+                    <svg class="icon" width="24" height="24">
+                        <use href="img/sprite.svg#cat_4"></use>
+                    </svg>
+                </span>
+                <span class="result-list__item-label">Квартири подобово</span>
+            </li>
+            <li class="result-list__item">
+                <span class="result-list__item-icon">
+                    <svg class="icon" width="24" height="24">
+                        <use href="img/sprite.svg#cat_5"></use>
+                    </svg>
+                </span>
+                <span class="result-list__item-label">Будинки подобово</span>
+            </li>
+            <li class="result-list__item">
+                <span class="result-list__item-icon">
+                    <svg class="icon" width="24" height="24">
+                        <use href="img/sprite.svg#cat_6"></use>
+                    </svg>
+                </span>
+                <span class="result-list__item-label">Орендувати земельну ділянку</span>
+            </li>
+            <li class="result-list__item">
+                <span class="result-list__item-icon">
+                    <svg class="icon" width="24" height="24">
+                        <use href="img/sprite.svg#cat_7"></use>
+                    </svg>
+                </span>
+                <span class="result-list__item-label">Орендувати комерційну нерухомість</span>
+            </li>
+            <li class="result-list__item">
+                <span class="result-list__item-icon">
+                    <svg class="icon" width="24" height="24">
+                        <use href="img/sprite.svg#cat_8"></use>
+                    </svg>
+                </span>
+                <span class="result-list__item-label">Орендувати гараж</span>
+            </li>
         </ul>
     </div>
 </div>
