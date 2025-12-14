@@ -157,14 +157,19 @@
         align-items: center;
         width: 50%;
         &__icon {
-            width: 24px;
-            height: 24px;
-            margin-right: 10px;
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+            display: flex;
+            align-items: center;
         }
         &__label {
             font-size: 16px;
             font-weight: 400;
             color: var(--colorWhite);
+            @media (max-width: 767px) {
+                font-size: 14px;
+            }
         }
         &:hover {
             cursor: pointer;
