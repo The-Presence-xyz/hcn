@@ -816,14 +816,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //range-field validation END
 
-  //filter Buttons BEGIN
+//filter Buttons BEGIN
 
-  // Отримуємо всі необхідні елементи
+// Отримуємо всі необхідні елементи
   const filterButtons = document.querySelectorAll('.filter-button');
+  const filterButtonsContainer = document.querySelector('.filter-buttons');
   const filterResults = document.querySelector('.filter-results');
   const closeBtn = document.querySelector('.close-btn');
   const filterTabs = document.querySelectorAll('.filter-tab');
   const resultLists = document.querySelectorAll('.result-list');
+
+// Визначення мобільного пристрою
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
+
+// Таймер для затримки закриття
+  let closeTimer = null;
+  let currentActiveButton = null;
 
 // Функція для перемикання табів
   function switchTab(type) {
@@ -836,9 +844,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Додаємо active до потрібного табу
     const activeTab = document.querySelector(`.filter-tab[data-type="${type}"]`);
     if (activeTab) {
-      console.log('activeTab: ', activeTab.dataset.type)
+      console.log('activeTab: ', activeTab.dataset.type);
       activeTab.classList.add('active');
-      filterResults.classList.add(`open-${activeTab.dataset.type}`)
+      filterResults.classList.remove('open-sell', 'open-rent');
+      filterResults.classList.add(`open-${activeTab.dataset.type}`);
     }
 
     // Додаємо show до потрібного списку
@@ -848,36 +857,92 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-// Обробник кліку на кнопки фільтра
-  filterButtons.forEach(button => {
-    button.addEventListener('click', (e) => {
+// Функція відкриття
+  function openFilterResults(buttonId) {
+    // Скасовуємо таймер закриття, якщо він є
+    if (closeTimer) {
+      clearTimeout(closeTimer);
+      closeTimer = null;
+    }
+
+    $('body').addClass('noScroll');
+    $('html').addClass('noScroll');
+    filterResults.classList.add('open');
+    scrollTo(0, 0);
+
+    // Перемикаємо таб
+    switchTab(buttonId);
+  }
+
+// Функція закриття з затримкою
+  function closeFilterResults() {
+    closeTimer = setTimeout(() => {
+      filterResults.classList.remove('open');
+      $('body').removeClass('noScroll');
+      $('html').removeClass('noScroll');
       filterButtons.forEach(btn => btn.classList.remove('active'));
-      filterButtons.forEach(btn => btn.blur());
-      e.stopPropagation();
+      currentActiveButton = null;
+    }, 250); // 250ms затримка
+  }
 
-      // Додаємо клас open до filter-results
-      $('body').addClass('noScroll');
-      $('html').addClass('noScroll');
-      filterResults.classList.add('open');
-      filterResults.classList.remove('open-sell');
-      filterResults.classList.remove('open-rent');
-      scrollTo(0, 0);
+// Скасування закриття
+  function cancelClose() {
+    if (closeTimer) {
+      clearTimeout(closeTimer);
+      closeTimer = null;
+    }
+  }
 
-      // Отримуємо ID кнопки (sell або rent)
-      const buttonId = button.id;
-      button.classList.add('active');
+// Обробники для кнопок фільтра
+  filterButtons.forEach(button => {
 
-      // Перемикаємо таб
-      switchTab(buttonId);
-    });
+    if (isMobile) {
+      // На мобільних - клік
+      button.addEventListener('click', (e) => {
+        e.stopPropagation();
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        filterButtons.forEach(btn => btn.blur());
+
+        const buttonId = button.id;
+        button.classList.add('active');
+        currentActiveButton = buttonId;
+        openFilterResults(buttonId);
+      });
+
+    } else {
+      // На десктопі - ховер на кнопку відкриває відповідний таб
+      button.addEventListener('mouseenter', () => {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        const buttonId = button.id;
+        button.classList.add('active');
+        currentActiveButton = buttonId;
+        openFilterResults(buttonId);
+      });
+    }
   });
 
-// Обробник закриття
+// Для десктопа: відслідковуємо вихід миші з усього контейнера filter-buttons
+  if (!isMobile) {
+    filterButtonsContainer.addEventListener('mouseenter', () => {
+      cancelClose();
+    });
+
+    filterButtonsContainer.addEventListener('mouseleave', () => {
+      closeFilterResults();
+    });
+  }
+
+// Обробник закриття по кнопці
   closeBtn.addEventListener('click', () => {
+    if (closeTimer) {
+      clearTimeout(closeTimer);
+      closeTimer = null;
+    }
     $('body').removeClass('noScroll');
     $('html').removeClass('noScroll');
     filterResults.classList.remove('open');
     filterButtons.forEach(btn => btn.classList.remove('active'));
+    currentActiveButton = null;
   });
 
 // Додатково: перемикання табів при кліку на них
@@ -888,21 +953,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Зупиняємо спливання подій всередині filter-results
+// Зупиняємо спливання подій всередині filter-results
   filterResults.addEventListener('click', (e) => {
     e.stopPropagation();
   });
 
-// Закриття при кліку за межами
+// Закриття при кліку за межами (тільки для мобільних або якщо вже відкрито)
   document.addEventListener('click', (e) => {
     const clickedInsideButtons = e.target.closest('.filter-buttons');
-    filterButtons.forEach(tab => tab.classList.remove('active'));
-    filterButtons.forEach(btn => btn.blur());
 
     if (!clickedInsideButtons && filterResults.classList.contains('open')) {
+      if (closeTimer) {
+        clearTimeout(closeTimer);
+        closeTimer = null;
+      }
       filterResults.classList.remove('open');
       $('body').removeClass('noScroll');
       $('html').removeClass('noScroll');
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      currentActiveButton = null;
     }
   });
 });

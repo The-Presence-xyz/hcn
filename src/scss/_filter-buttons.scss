@@ -3,6 +3,10 @@
     align-items: center;
     gap: 16px;
     position: relative;
+    padding: 30px 0;
+    @media (max-width: 991px) {
+        padding: 21px 0;
+    }
     @media (max-width: 767px) {
         position: fixed;
         bottom: 0;
@@ -34,14 +38,38 @@
         font-family: "Roboto", sans-serif;
         background-color: var(--colorBlue);
         border: 1px solid var(--colorBlue);
-        transition: all .3s ease;
         color: var(--colorDarkBlue);
+        @media (min-width: 768px) {
+            background-color: transparent;
+            border: none;
+            position: relative;
+            color: var(--colorWhite);
+        }
+        transition: color .3s ease;
+        @media (min-width: 768px) {
+            &:after {
+                position: absolute;
+                content: "";
+                height: 4px;
+                width: 100%;
+                left: 0;
+                bottom: -30px;
+                border-radius: 2px 2px 0 0;
+                background-color: transparent;
+                @media (max-width: 991px) {
+                    bottom: -21px;
+                }
+            }
+        }
         
         svg {
             width: 24px;
             height: 24px;
             margin-right: 16px;
             fill: var(--colorDarkBlue);
+            @media (min-width: 768px) {
+                display: none;
+            }
             @media (max-width: 767px) {
                 margin-right: 4px;
             }
@@ -50,13 +78,20 @@
         &:hover,
         &.active {
             cursor: pointer;
-            border: 1px solid var(--colorWhite);
-            background-color: var(--colorDarkBlue);
-            color: var(--colorWhite);
-            transition: all .3s ease;
+            //border: 1px solid var(--colorWhite);
+            //background-color: var(--colorDarkBlue);
+            @media (min-width: 768px) {
+                color: var(--colorOrange);
+                transition: color .3s ease;
+            }
             
-            svg {
-                filter: brightness(0) invert(1);
+            //svg {
+            //    filter: brightness(0) invert(1);
+            //}
+            @media (min-width: 768px) {
+                &:after {
+                    background-color: var(--colorOrange);
+                }
             }
         }
         @media (max-width: 767px) {
@@ -65,6 +100,7 @@
             padding: 0 15px;
             font-size: 14px;
             font-weight: 700;
+            width: 100%;
         }
     }
     .vertical-divider {
@@ -116,7 +152,7 @@
     position: absolute;
     background: #fff;
     z-index: 20;
-    top: 50px;
+    top: 100%;
     border-radius: 6px;
     box-shadow: 0 -1px 4px 0 rgba(0, 0, 0, 0.08), 0 1px 4px 0 rgba(0, 0, 0, 0.08);
     padding: 0 16px;
@@ -124,6 +160,9 @@
     overflow-y: auto;
     display: none;
     min-width: 359px;
+    //@media (max-width: 992px) {
+    //    top: 63px;
+    //}
     
     @media (max-width: 767px) {
         display: none;

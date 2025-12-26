@@ -1,6 +1,6 @@
 .header {
     background-color: var(--colorDarkBlue);
-    padding: 16px 0;
+    //padding: 16px 0;
     z-index: 11;
 
     .container {
@@ -16,14 +16,14 @@
     }
 
     @media (max-width: 991px) {
-        padding: 16px 0;
+        //padding: 16px 0;
     }
 
     &__logo {
         display: flex;
         max-width: 70px;
-        display: flex;
         align-items: center;
+        padding: 16px 0;
 
         @media (max-width: 991px) {
             max-width: 52px;
