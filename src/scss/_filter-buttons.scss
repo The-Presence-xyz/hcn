@@ -1,7 +1,6 @@
 .filter-buttons {
     display: flex;
     align-items: center;
-    gap: 16px;
     position: relative;
     padding: 30px 0;
     @media (max-width: 991px) {
@@ -15,19 +14,27 @@
         z-index: 10;
         border-bottom: 1px solid #d3d3d3;
         border-top: 0.25px solid #d3d3d3;
-        padding: 10px;
+        padding: 0;
         box-shadow: 0 -1px 4px 0 rgba(12, 12, 13, 0.05);
         background: #fff;
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 8px;
+        height: 0;
+        overflow: hidden;
+        transition: padding 0.3s ease, height 0.3s ease;
+    }
+    &.showOnMobile {
+        padding: 10px;
+        height: 64px;
+        transition: padding 0.3s ease, height 0.3s ease;
     }
     
     button {
         height: 42px;
         border-radius: 25px;
-        padding: 0 29px;
+        padding: 0 20px;
         text-decoration: none;
         font-size: 20px;
         font-weight: 400;
@@ -39,14 +46,12 @@
         background-color: var(--colorBlue);
         border: 1px solid var(--colorBlue);
         color: var(--colorDarkBlue);
+        transition: color .3s ease;
         @media (min-width: 768px) {
             background-color: transparent;
             border: none;
             position: relative;
             color: var(--colorWhite);
-        }
-        transition: color .3s ease;
-        @media (min-width: 768px) {
             &:after {
                 position: absolute;
                 content: "";
@@ -119,13 +124,13 @@
         display: flex;
         width: 100%;
         border: 1px solid #BBB;
-        border-radius: 500px;
+        border-radius: 4px;
         padding: 4px;
         gap: 8px;
     }
     .filter-tab {
         height: 35px;
-        border-radius: 25px;
+        border-radius: 4px;
         padding: 0 16px;
         text-decoration: none;
         font-size: 16px;
@@ -182,7 +187,7 @@
         left: 0;
     }
     &.open-rent {
-        left: 190px;
+        left: 114px;
         @media (max-width: 767px) {
             left: 0;
         }

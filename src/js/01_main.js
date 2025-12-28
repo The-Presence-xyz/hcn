@@ -932,6 +932,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Показ filter-buttons на мобільних при скролі
+  if (isMobile) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY >= 300) {
+        filterButtonsContainer.classList.add('showOnMobile');
+      } else {
+        filterButtonsContainer.classList.remove('showOnMobile');
+      }
+    });
+  }
+
 // Обробник закриття по кнопці
   closeBtn.addEventListener('click', () => {
     if (closeTimer) {
